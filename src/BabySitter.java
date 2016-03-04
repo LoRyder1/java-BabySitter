@@ -3,6 +3,8 @@ public class BabySitter {
 
     private int startTime;
     private int endTime;
+    private static final int DAY_RATE = 12;
+
 
     public BabySitter(int startTime, int endTime) {
         this.startTime = startTime;
@@ -15,5 +17,13 @@ public class BabySitter {
         } else {
             return true;
         }
+    }
+
+    public int caclulatePay() {
+        int totalPay = 0;
+        for(int currentHour = startTime; currentHour < endTime; currentHour++) {
+            totalPay += DAY_RATE;
+        }
+        return totalPay;
     }
 }
