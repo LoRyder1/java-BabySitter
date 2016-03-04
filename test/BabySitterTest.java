@@ -7,7 +7,7 @@ public class BabySitterTest {
 
     private BabySitter sitting;
 
-    public void sittingSchedule(int startTime, int endTime) {
+    public void sittingSchedule(double startTime, double endTime) {
         sitting = new BabySitter(startTime, endTime);
     }
 
@@ -59,4 +59,9 @@ public class BabySitterTest {
         assertEquals(140, sitting.calculatePay());
     }
 
+    @Test
+    public void calculatePayForFullHoursNotFractional() {
+        sittingSchedule(17.6, 27.4);
+        assertEquals(112, sitting.calculatePay());
+    }
 }
