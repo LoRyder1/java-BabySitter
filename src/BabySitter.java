@@ -1,9 +1,11 @@
 
 public class BabySitter {
 
+    private static final int DAY_RATE = 12;
+    private static final int BEDTIME = 22;
+    private static final int AFTER_BEDTIME_RATE = 8;
     private int startTime;
     private int endTime;
-    private static final int DAY_RATE = 12;
 
 
     public BabySitter(int startTime, int endTime) {
@@ -22,7 +24,11 @@ public class BabySitter {
     public int calculatePay() {
         int totalPay = 0;
         for(int currentHour = startTime; currentHour < endTime; currentHour++) {
-            totalPay += DAY_RATE;
+            if(currentHour < BEDTIME) {
+                totalPay += DAY_RATE;
+            } else {
+                totalPay += AFTER_BEDTIME_RATE;
+            }
         }
         return totalPay;
     }
