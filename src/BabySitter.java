@@ -10,6 +10,10 @@ public class BabySitter {
     }
 
     public boolean valid() {
-        return false;
+        if(startTime < 17) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
