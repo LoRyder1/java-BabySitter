@@ -10,7 +10,7 @@ public class BabySitter {
     }
 
     public boolean valid() {
-        if(startTime < 17) {
+        if(startTime < 17 || endTime > 28) {
             return false;
         } else {
             return true;
