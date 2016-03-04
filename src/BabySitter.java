@@ -26,15 +26,23 @@ public class BabySitter {
     public int calculatePay() {
         int totalPay = 0;
         for(int currentHour = startTime; currentHour < endTime; currentHour++) {
-            if(currentHour >= MIDNIGHT) {
-                totalPay += AFTER_MIDNIGHT_RATE;
-            }
-            else if(currentHour =< BEDTIME) {
+            if(beforeBedTime(currentHour)) {
                 totalPay += DAY_RATE;
-            } else {
+            }
+            else if(betweenBedtimeAndMidnight(currentHour)){
                 totalPay += AFTER_BEDTIME_RATE;
+            } else {
+                totalPay += AFTER_MIDNIGHT_RATE;
             }
         }
         return totalPay;
+    }
+
+    private boolean betweenBedtimeAndMidnight(int currentHour) {
+        return currentHour < MIDNIGHT && currentHour >= BEDTIME;
+    }
+
+    private boolean beforeBedTime(int currentHour) {
+        return currentHour < BEDTIME;
     }
 }
