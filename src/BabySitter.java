@@ -16,11 +16,11 @@ public class BabySitter {
     }
 
     public boolean valid() {
-        if(startTime < 17 || endTime > 28) {
-            return false;
-        } else {
-            return true;
-        }
+        return startAfter5AndEndBefore4();
+    }
+
+    private boolean startAfter5AndEndBefore4() {
+        return startTime >= 17 && endTime <= 28;
     }
 
     public int calculatePay() {
