@@ -19,7 +19,7 @@ public class BabySitter {
         }
     }
 
-    public int caclulatePay() {
+    public int calculatePay() {
         int totalPay = 0;
         for(int currentHour = startTime; currentHour < endTime; currentHour++) {
             totalPay += DAY_RATE;
