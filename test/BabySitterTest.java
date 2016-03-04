@@ -29,4 +29,10 @@ public class BabySitterTest {
         assertEquals(false, sitting.valid());
     }
 
+    @Test
+    public void sittingEndsEarlierThanFourReturnsTrue() {
+        sittingSchedule(17, 28);
+        assertEquals(true, sitting.valid());
+    }
+
 }
